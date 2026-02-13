@@ -5,18 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Be My Valentine 💘</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       min-height: 100vh;
@@ -36,7 +29,6 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Card */
     .card {
       width: min(92%, 420px);
       padding: 40px 30px 45px;
@@ -56,7 +48,6 @@
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    /* Glow ring */
     .card::before {
       content: "";
       position: absolute;
@@ -77,7 +68,6 @@
     @keyframes heartbeat {
       0%,100% { transform: scale(1); }
       25% { transform: scale(1.08); }
-      50% { transform: scale(1); }
       75% { transform: scale(1.12); }
     }
 
@@ -106,9 +96,7 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
-    button:active {
-      transform: scale(0.94);
-    }
+    button:active { transform: scale(0.94); }
 
     #yes {
       left: 12%;
@@ -135,33 +123,30 @@
       font-style: italic;
     }
 
-    /* Floating depth hearts */
+    #loveMessage {
+      display: none;
+      margin-top: 20px;
+      font-size: 15px;
+      color: #4a1c2f;
+      line-height: 1.6;
+      animation: fadeIn 1.3s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .heart {
       position: absolute;
       bottom: -20px;
       animation: floatUp linear forwards;
       pointer-events: none;
-      filter: blur(0.3px);
     }
 
     @keyframes floatUp {
-      from {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(-120vh) scale(1.8);
-        opacity: 0;
-      }
-    }
-
-    /* Responsive */
-    @media (max-width: 480px) {
-      h2 { font-size: 23px; }
-      .emoji { font-size: 58px; }
-      button { padding: 12px 28px; font-size: 15px; }
-      #yes { left: 8%; }
-      #no { left: 55%; }
+      from { transform: translateY(0) scale(1); opacity: 1; }
+      to { transform: translateY(-120vh) scale(1.8); opacity: 0; }
     }
   </style>
 </head>
@@ -169,18 +154,26 @@
 <body>
 
   <div class="card">
-    <div class="emoji">🐱❤️</div>
-    <h2>Aditi,<br>will you be my Valentine?</h2>
+    <div class="emoji">🥺❤️</div>
+    <h2>Aaryaa!!,<br>Will You Be My Valentine?</h2>
 
     <div class="buttons">
       <button id="yes">Yes 💖</button>
-      <button id="no">No 🙈</button>
+      <button id="no">No ☹️</button>
     </div>
 
-    <div class="hint">Some love stories don’t allow “no” ✨</div>
+    <div class="hint">Some Love Stories Don’t Allow “No” 🥰😘</div>
+
+    <p id="loveMessage">
+      Happy Valentine's Day, My Love 🥰.<br><br>
+      You Make My Boring Day Feel Special Just By Talking With Me.<br><br>
+      Your Smile, Your Laugh, Your Cute Kuchi Puchi Face And The Way You Care About Me
+      Mean More Than I Can Ever Explain.<br><br>
+      I'm Really Lucky To Have You 🥺.<br><br>
+      Aaryaa!! I Love You So So So Much!! ❤️
+    </p>
   </div>
 
-  <!-- Sounds -->
   <audio id="hoverSound" src="https://assets.mixkit.co/sfx/preview/mixkit-cartoon-voice-laugh-343.mp3"></audio>
   <audio id="yesSound" src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3"></audio>
 
@@ -215,7 +208,15 @@
       });
 
       setTimeout(() => {
-        alert("YAY 💕 I can’t wait for Valentine’s Day with you!");
+
+        document.querySelector(".buttons").style.display = "none";
+        document.querySelector(".hint").style.display = "none";
+
+        document.querySelector("h2").innerHTML = "Happy Valentine's Day ❤️";
+        document.querySelector(".emoji").innerHTML = "💋💘";
+
+        document.getElementById("loveMessage").style.display = "block";
+
       }, 500);
     });
 
@@ -237,3 +238,7 @@
 
 </body>
 </html>
+
+
+
+
