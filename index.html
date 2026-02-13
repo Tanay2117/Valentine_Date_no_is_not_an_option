@@ -5,18 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Be My Valentine 💘</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <!-- Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       min-height: 100vh;
@@ -36,7 +29,6 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Card */
     .card {
       width: min(92%, 420px);
       padding: 40px 30px 45px;
@@ -56,7 +48,6 @@
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    /* Glow ring */
     .card::before {
       content: "";
       position: absolute;
@@ -77,7 +68,6 @@
     @keyframes heartbeat {
       0%,100% { transform: scale(1); }
       25% { transform: scale(1.08); }
-      50% { transform: scale(1); }
       75% { transform: scale(1.12); }
     }
 
@@ -106,9 +96,7 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
-    button:active {
-      transform: scale(0.94);
-    }
+    button:active { transform: scale(0.94); }
 
     #yes {
       left: 12%;
@@ -135,33 +123,30 @@
       font-style: italic;
     }
 
-    /* Floating depth hearts */
+    #loveMessage {
+      display: none;
+      margin-top: 20px;
+      font-size: 15px;
+      color: #4a1c2f;
+      line-height: 1.6;
+      animation: fadeIn 1.3s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .heart {
       position: absolute;
       bottom: -20px;
       animation: floatUp linear forwards;
       pointer-events: none;
-      filter: blur(0.3px);
     }
 
     @keyframes floatUp {
-      from {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(-120vh) scale(1.8);
-        opacity: 0;
-      }
-    }
-
-    /* Responsive */
-    @media (max-width: 480px) {
-      h2 { font-size: 23px; }
-      .emoji { font-size: 58px; }
-      button { padding: 12px 28px; font-size: 15px; }
-      #yes { left: 8%; }
-      #no { left: 55%; }
+      from { transform: translateY(0) scale(1); opacity: 1; }
+      to { transform: translateY(-120vh) scale(1.8); opacity: 0; }
     }
   </style>
 </head>
@@ -170,17 +155,25 @@
 
   <div class="card">
     <div class="emoji">🥺❤️</div>
-    <h2>Aarya,<br>Will You Be My Valentine?</h2>
+    <h2>Aaryaa!!,<br>Will You Be My Valentine?</h2>
 
     <div class="buttons">
       <button id="yes">Yes 💖</button>
       <button id="no">No ☹️</button>
     </div>
 
-    <div class="hint">Some Love Stories Don’t Allow “NO” 😼</div>
+    <div class="hint">Some Love Stories Don’t Allow “No” 🥰😘</div>
+
+    <p id="loveMessage">
+      Happy Valentine's Day, My Love 🥰.<br><br>
+      You Make My Boring Normal Day Feel Special Just By Talking With Me.<br><br>
+      Your Smile, Your Life, Your Cute Kuchi Puchi Face And The Way You Care About Me 
+      Mean More Than I Can Ever Explain.<br><br>
+      I'm Really Lucky To Have You 🥺.<br><br>
+      Aaryaa!! I Love You So So So Much!! ❤️
+    </p>
   </div>
 
-  <!-- Sounds -->
   <audio id="hoverSound" src="https://assets.mixkit.co/sfx/preview/mixkit-cartoon-voice-laugh-343.mp3"></audio>
   <audio id="yesSound" src="https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3"></audio>
 
@@ -209,37 +202,22 @@
       yesSound.play();
 
       confetti({
-        particleCount: 1000000,
+        particleCount: 260,
         spread: 120,
         origin: { y: 0.65 }
       });
 
       setTimeout(() => {
-        alert("YAYA 💕 I Knew It I Can’t Wait To See You😍 We Will Have So Much Fun Boards Ke Baad!
-              'Aaryaaaa! I Missinggg You So Muchh Roz Subhah Uthne Se Sone Tak you are in my mind 24/7
-              'I m telling i m not gonna Let u go boards ke baad tu ghar hi nhi jaa payegi tu, we will
-              'Do every single thing jo humne chats par bola hai😈, Aaryaaa! Terko terko wapas text karna
-              'was  my best  decision  everr i dont know kya hota If mai terko  message hi  nhi karta i 
-              'cant even imagine that and sabse badi baat, we are in a relationshippp noww! kidhr
-              'se kidhr pahuch gaye hum. I dont know terko mai pasand bhi kaise aaya maine wo sab baatein     
-              'apne dimag se hi nikal di thi kyu ki i knew i dont stand a chance, aap 69/10 baddie jo ho😥");
-              'but whatever, now we are together and thats what matters i am so gratefull to have you!!
-              'i soo muchh love tera bossgirl attitude🛐 tu itni cool or sexy hai😩 pure goon material🤪
-              'just kidding i respect my mommyy😤 i was so shocked when you said you are insecure about
-              'Your Looks Like agar aisa hai fir mujhe toh  suicide hi kar lena chahiye💀💔 you are so
-              'pyaari Aarya i can look at you For hours terko koi zarurat nhi hai ye sab ki you already
-              'look so pretty You dont have to change you are the prettiestt! humne sath mai kitna kuch kiya
-              'hai like kitna kuch I can never forget 7th, 8th mai bhi kitni  bakchodi ki hai group mai I miss
-              'that time so much lake par milna(nghtmare),school mai baat karna, ek dusre se flirt karna(only me),
-              'prime time it was, I hope hum aise hi sath rahengge aage bhi and memories banate rahenge
-              'boards ke baad sab kuch karenge you know what I mean👅 lekin  abhi toh padhna hai I wish
-              'same thing hamesha ki bas marks achhe aa jaye or hum fir baadme ghum paaye This is the only thing
-              'I want currently I dont know mai kuch bhi likhe jaa rha hu bjo bhi mere man mai aa rha hai 
-              'nhi pata kya likhte hai letter mai and mujhe ye bhi nhi pata ki letter ko end kaise karte hai💔
-              'peheli baar mai kisi ke liye letter likh rha hu i hope terko ye letter achha lage😥😥
-              'Aaryaaa I loveee you sooo muchhhh meri baaki 376 gfs mai se sabse achhi tu hi haii yaar sacchi😍
-              'just kiddinggg yaawr😝 you are the onlyy onee In myy lifeee the first and last! i loveee you
-              'soo muchhhhhhhh! happy valentiness dayyy babyyyyyyyyyy! aahaaah ek baar haath mai aaja bas tuu😫!", 100000);
+
+        document.querySelector(".buttons").style.display = "none";
+        document.querySelector(".hint").style.display = "none";
+
+        document.querySelector("h2").innerHTML = "Happy Valentine's Day ❤️";
+        document.querySelector(".emoji").innerHTML = "😍💖";
+
+        document.getElementById("loveMessage").style.display = "block";
+
+      }, 500);
     });
 
     function createHeart() {
@@ -260,10 +238,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
